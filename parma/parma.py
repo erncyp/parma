@@ -27,7 +27,7 @@ def rule_miner(data, feature_cols, y_col, limit=2):
     results = []
 
     for combination in _create_column_combinations(feature_cols, limit):
-        _df = df.groupby(combination)[y_col].agg(["count", "mean"]).reset_index()
+        _df = df.groupby(list(combination))[y_col].agg(["count", "mean"]).reset_index()
         _df["itemset"] = _df.iloc[:, :-2].sum(axis=1)
         _df = _df.iloc[:, -3:]
         results.append(_df)
