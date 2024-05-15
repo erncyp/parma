@@ -1,2 +1,2 @@
 pandas
-searborn # for example data
+seaborn # for example data
